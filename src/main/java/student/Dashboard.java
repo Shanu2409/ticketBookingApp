@@ -4,6 +4,8 @@
  */
 package student;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author shanu
@@ -27,6 +29,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dashboad");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
