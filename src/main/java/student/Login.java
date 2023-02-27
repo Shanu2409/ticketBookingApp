@@ -5,6 +5,7 @@
 package student;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -126,8 +127,8 @@ public class Login extends javax.swing.JFrame {
             
             System.out.println(db.IsAUser(T_name.getText(), T_pass.getText()));
             
-            
-            
+            dispose();
+            new Dashboard(db.IsAUser(T_name.getText(), T_pass.getText())).setVisible(true);
             //pass this data to dashboard
         }
         else{

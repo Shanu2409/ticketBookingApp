@@ -43,17 +43,34 @@ public class DbAccess {
         return null;
     }
 
-    public static void TicketStore(String data[]) {
+    public void TicketStore(String data[]) {
         s.InsertTicker(data, "Tickets");
     }
+    
+    public void UpdateName(String adhaar,String newN){
+        s.update("Phone", adhaar, "Adhaar", newN);
+    }
+    
+    public void UpdateAdhaar(String adhaar, String newA){
+        s.update("Adhaar", adhaar, "Adhaar", newA);
+    }
+    
+    public void UpdatePhone(String adhaar, String newA){    
+        s.update("Adhaar", adhaar, "Phone", newA);
+    }
+    
+    public void UpdatePass(String adhaar, String newA){
+        s.update("Adhaar", adhaar, "Password", newA);
+    }
 
-    public static void ShowData(String UID) {
+    public void ShowData(String UID) {
         List<List<String>> t = s.pullOneData("UID", UID, "Tickets");
-        //❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+        
+        System.out.println(t);
 
         String colOfStr[][] = new String[t.size()][7];
 
-        System.out.println(t);
+//        System.out.println(t);
 
 //        colOfStr[0] =  t.get(0).toArray();
 //        colOfStr[1] =  t.get(1).toArray();
@@ -91,7 +108,7 @@ public class DbAccess {
 //        System.out.println(IsAUser("shanu","PASS"));
 //        String[] add = {"malad", "dubai", "112", "1h5h51", "bus", "3"};
 //        TicketStore(add);
-        ShowData("63fb047e508665a44438f74");
+//        ShowData("63fb047e508665a44438f74");
         
     }
 }

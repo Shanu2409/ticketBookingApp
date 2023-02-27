@@ -5,6 +5,7 @@
 package student;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -18,13 +19,13 @@ public class Profile extends javax.swing.JFrame {
      * Creates new form Profile
      */
     
-    ArrayList<String> data2 = new ArrayList<>();
-    public Profile(ArrayList<String> data) {
+    List<String> data2 = new ArrayList<>();
+    public Profile(List<String> data) {
         data2 = data;
         initComponents();
-        Tname.setText(data2.get(0));
-        Tadhaar.setText(data2.get(1));
-        Tphone.setText(data2.get(2));
+        Tname.setText(data2.get(1));
+        Tadhaar.setText(data2.get(2));
+        Tphone.setText(data2.get(3));
     }
 
     /**
@@ -57,6 +58,11 @@ public class Profile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 200, 0, 0));
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
 
         Btn_edit_name.setText("Edit");
         Btn_edit_name.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +148,7 @@ public class Profile extends javax.swing.JFrame {
         LOldPassword.setText("Old Password :");
 
         BtnBack.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        BtnBack.setText("GO back Home");
+        BtnBack.setText("RE-LOGIN");
         BtnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnBackActionPerformed(evt);
@@ -263,11 +269,14 @@ public class Profile extends javax.swing.JFrame {
             Tname.setEditable(true);
             Tname.requestFocusInWindow();
             Tname.requestFocus();
+            
         }
         else if(Btn_edit_name.getText()== "Change"){
             Btn_edit_name.setText("Edit");
-            Tname.setEditable(false
-            );
+            Tname.setEditable(false);
+            
+            DbAccess db = new DbAccess();
+            db.UpdateName(data2.get(2), Tname.getText());
         }
     }//GEN-LAST:event_Btn_edit_nameActionPerformed
 
@@ -307,6 +316,9 @@ public class Profile extends javax.swing.JFrame {
         else if(Btn_edit_adhaar.getText().equals("Change")){
             Btn_edit_adhaar.setText("Edit");
             Tadhaar.setEditable(false);
+            
+            DbAccess db = new DbAccess();
+            db.UpdateName(data2.get(3), Tadhaar.getText());
         }
     }//GEN-LAST:event_Btn_edit_adhaarActionPerformed
 
@@ -329,6 +341,10 @@ public class Profile extends javax.swing.JFrame {
         else if(Btn_edit_phone.getText()== "Change"){
             Btn_edit_phone.setText("Edit");
             Tphone.setEditable(false);
+            
+            
+            DbAccess db = new DbAccess();
+            db.UpdatePhone(data2.get(2), Tphone.getText());
 
         }
     }//GEN-LAST:event_Btn_edit_phoneActionPerformed
@@ -344,6 +360,7 @@ public class Profile extends javax.swing.JFrame {
         if(Integer.parseInt(Tamount.getText()) < 50){
             JOptionPane.showMessageDialog(new JFrame(), "Amount should be grater then 50", "Warning",JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_Btn_depositActionPerformed
 
     private void Btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_change_passwordActionPerformed
@@ -353,9 +370,13 @@ public class Profile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(new JFrame(), "please Enter password", "Dialog",JOptionPane.ERROR_MESSAGE);
         }
 
-        else if(TOldPassword.getText().equals(data2.get(3))){
-
+        else if(TOldPassword.getText().equals(data2.get(5))){
+            
+            
             Btn_change_password.setText("Done!!!");
+            
+            DbAccess db = new DbAccess();
+            db.UpdatePass(data2.get(2), TNewPassword.getText());
         }
         else{
             JOptionPane.showMessageDialog(new JFrame(), "Old password is wrong", "Dialog",JOptionPane.ERROR_MESSAGE);
@@ -385,6 +406,10 @@ public class Profile extends javax.swing.JFrame {
     private void TphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TphoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TphoneActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
 
     /**
      * @param args the command line arguments
@@ -416,12 +441,12 @@ public class Profile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ArrayList<String> lis = new ArrayList<>();
-                lis.add("Shanu");
+                List<String> lis = new ArrayList<String>();
+                lis.add("Shaanu");
                 lis.add("123");
-                lis.add("098");
-                lis.add("pass");
-                new Profile(lis).setVisible(true);
+                lis.add("0988");
+                lis.add("PASS");
+//                new Profile(lis).setVisible(true);
             }
         });
     }

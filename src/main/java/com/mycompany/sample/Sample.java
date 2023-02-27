@@ -9,6 +9,8 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -124,6 +126,11 @@ public class Sample {
         
         collection.insertOne(doc);
         System.out.println("Ticket Successfully Stored");
+    }
+    
+    public void update(String fromK, String fromV, String toK, String toV){
+        collection = db.getCollection("Accounts");
+        collection.updateOne(Filters.eq(fromK, fromV), Updates.set(toK, toV));
     }
 
     public static void main(String[] args) {

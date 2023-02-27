@@ -27,23 +27,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="Btn_Home" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Btn_Print" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="LFrom" min="-2" pref="128" max="-2" attributes="0"/>
-                  <Component id="LTo" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                  <Component id="LPrice" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                  <Component id="LUid" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                  <Component id="LType" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="LPlatform" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="Btn_Home" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Btn_Print" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="LFrom" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="LTo" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="LPrice" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="LUid" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="LType" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="LPlatform" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="203" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="203" max="-2" attributes="0"/>
+              <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -56,7 +61,7 @@
                       <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="165" max="32767" attributes="0"/>
+                  <EmptySpace pref="241" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -167,6 +172,9 @@
         <Property name="text" type="java.lang.String" value="Home"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_HomeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_Print">
       <Properties>

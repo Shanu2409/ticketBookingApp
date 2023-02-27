@@ -4,6 +4,8 @@
  */
 package student;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,8 +19,11 @@ public class Bus extends javax.swing.JFrame {
      * Creates new form Bus
      */
     
-    String data[] = new String[6];
-    public Bus() {
+    String data3[] = new String[6];
+    ArrayList<String> data = new ArrayList<>();
+    List<String> data2 = new ArrayList<String>();
+    public Bus(List<String> s) {
+        data2 = s;
         initComponents();
     }
 
@@ -41,6 +46,7 @@ public class Bus extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Uid = new javax.swing.JLabel();
         platform = new javax.swing.JLabel();
+        Book = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,29 +92,43 @@ public class Bus extends javax.swing.JFrame {
 
         platform.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
 
+        Book.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        Book.setText("BOOK NOW");
+        Book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BookActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Menu2, 0, 130, Short.MAX_VALUE)
-                        .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Uid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(platform, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Menu2, 0, 130, Short.MAX_VALUE)
+                                .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Uid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(platform, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(Book)))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +159,9 @@ public class Bus extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(platform, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(Book, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -166,7 +188,7 @@ public class Bus extends javax.swing.JFrame {
         if(sel1.equals(sel2)){
             JOptionPane.showMessageDialog(new JFrame(), "Both the place can't be same", "Dialog",JOptionPane.ERROR_MESSAGE);
             dispose();
-            new Bus().setVisible(true);
+            new Bus(data2).setVisible(true);
         }
         
         if(sel1 == "virar" || sel1 == "Madidra"){
@@ -175,20 +197,34 @@ public class Bus extends javax.swing.JFrame {
         
         Price.setText(String.valueOf(cost));
         
-//        Uid.setText();
+        Uid.setText(data2.get(0));
 
         if(sel1 == "virar" || sel1 == "Madidra") plat = 3;
         else plat = 7;
         
         platform.setText(String.valueOf(plat));
         
-        data[0] = sel1;
-        data[1] = sel2;
-        data[2] = String.valueOf(cost);
-//        data[3] = 
-        data[4] = "Bus";
-        data[5] = String.valueOf(plat);
+        data3[0] = sel1;
+        data.add(sel1);
+        data3[1] = sel2;
+        data.add(sel2);
+        data3[2] = String.valueOf(cost);
+        data.add(String.valueOf(cost));
+        data3[3] = data2.get(0);
+        data.add(data2.get(0));
+        data3[4] = "Bus";
+        data.add("Bus");
+        data3[5] = String.valueOf(plat);
+        data.add(String.valueOf(cost));
     }//GEN-LAST:event_Menu2ActionPerformed
+
+    private void BookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookActionPerformed
+        // TODO add your handling code here:
+        DbAccess db = new DbAccess();
+        db.TicketStore(data3);
+        new Ticker(data).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,12 +256,13 @@ public class Bus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bus().setVisible(true);
+//                new Bus().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Book;
     private javax.swing.JComboBox<String> Menu1;
     private javax.swing.JComboBox<String> Menu2;
     private javax.swing.JLabel Price;

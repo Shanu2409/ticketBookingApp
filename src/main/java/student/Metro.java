@@ -4,6 +4,11 @@
  */
 package student;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shanu
@@ -13,7 +18,11 @@ public class Metro extends javax.swing.JFrame {
     /**
      * Creates new form Metro
      */
-    public Metro() {
+    String data3[] = new String[6];
+    ArrayList<String> data = new ArrayList<>();
+    List<String> data2 = new ArrayList<String>();
+    public Metro(List<String> s) {
+        data2 = s;
         initComponents();
     }
 
@@ -26,21 +35,181 @@ public class Metro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        Menu1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        Menu2 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        Price = new javax.swing.JLabel();
+        jsa = new javax.swing.JLabel();
+        Uid = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        platform = new javax.swing.JLabel();
+        Book = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jLabel1.setText("Source : ");
+
+        Menu1.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+        Menu1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poisar", "kurar", "kandiwali", "dindoshi" }));
+        Menu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jLabel2.setText("Destination : ");
+
+        Menu2.setFont(new java.awt.Font("Segoe UI Historic", 3, 18)); // NOI18N
+        Menu2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kurar", "Poisar", "kandiwali", "dindoshi" }));
+        Menu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Price : ");
+
+        Price.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+
+        jsa.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jsa.setText("UID : ");
+
+        Uid.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 3, 24)); // NOI18N
+        jLabel4.setText("Platform : ");
+
+        platform.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+
+        Book.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        Book.setText("BOOK");
+        Book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BookActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jsa)
+                            .addComponent(jLabel4))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Menu1, 0, 137, Short.MAX_VALUE)
+                            .addComponent(Menu2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Uid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(platform, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(Book, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Menu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jsa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Uid, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(platform, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(Book, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookActionPerformed
+        // TODO add your handling code here:
+        DbAccess db = new DbAccess();
+        db.TicketStore(data3);
+        new Ticker(data).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BookActionPerformed
+
+    private void Menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println(Menu1.getSelectedItem());
+    }//GEN-LAST:event_Menu1ActionPerformed
+
+    private void Menu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu2ActionPerformed
+        // TODO add your handling code here:
+        String sel1 = (String) Menu1.getSelectedItem();
+        String sel2 = (String) Menu2.getSelectedItem();
+        int cost = 0;
+        int plat;
+        
+        if(sel1.equals(sel2)){
+            JOptionPane.showMessageDialog(new JFrame(), "Both the place can't be same", "Dialog",JOptionPane.ERROR_MESSAGE);
+            dispose();
+            new Bus(data2).setVisible(true);
+        }
+        
+        if(sel1 == "dindoshi" || sel1 == "kurar"){
+            cost = 5;
+        }else cost = 10;
+        
+        Price.setText(String.valueOf(cost));
+        
+        Uid.setText(data2.get(0));
+
+        if(sel1 == "dindoshi" || sel1 == "kurar") plat = 3;
+        else plat = 7;
+        
+        platform.setText(String.valueOf(plat));
+        
+        data3[0] = sel1;
+        data.add(sel1);
+        data3[1] = sel2;
+        data.add(sel2);
+        data3[2] = String.valueOf(cost);
+        data.add(String.valueOf(cost));
+        data3[3] = data2.get(0);
+        data.add(data2.get(0));
+        data3[4] = "Metro";
+        data.add("Metro");
+        data3[5] = String.valueOf(plat);
+        data.add(String.valueOf(cost));
+    }//GEN-LAST:event_Menu2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,11 +241,22 @@ public class Metro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Metro().setVisible(true);
+//                new Metro().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Book;
+    private javax.swing.JComboBox<String> Menu1;
+    private javax.swing.JComboBox<String> Menu2;
+    private javax.swing.JLabel Price;
+    private javax.swing.JLabel Uid;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jsa;
+    private javax.swing.JLabel platform;
     // End of variables declaration//GEN-END:variables
 }

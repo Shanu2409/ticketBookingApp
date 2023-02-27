@@ -5,6 +5,7 @@
 package student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,7 +16,9 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+    List<String> data;
+    public Dashboard(List<String> s) {
+        data = s;
         initComponents();
     }
 
@@ -28,22 +31,107 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Bus = new javax.swing.JButton();
+        Train = new javax.swing.JButton();
+        Metro = new javax.swing.JButton();
+        Profile = new javax.swing.JButton();
+        History = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboad");
+
+        Bus.setText("Bus");
+        Bus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BusActionPerformed(evt);
+            }
+        });
+
+        Train.setText("Train");
+
+        Metro.setText("Metro");
+        Metro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MetroActionPerformed(evt);
+            }
+        });
+
+        Profile.setText("Profile");
+        Profile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfileActionPerformed(evt);
+            }
+        });
+
+        History.setText("History");
+        History.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(Metro)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Bus)
+                    .addComponent(Profile))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Train)
+                    .addComponent(History))
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Bus)
+                    .addComponent(Train))
+                .addGap(50, 50, 50)
+                .addComponent(Metro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Profile)
+                    .addComponent(History))
+                .addGap(77, 77, 77))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusActionPerformed
+        // TODO add your handling code here:
+        new Bus(data).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BusActionPerformed
+
+    private void ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileActionPerformed
+        // TODO add your handling code here:
+        new Profile(data).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ProfileActionPerformed
+
+    private void HistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoryActionPerformed
+        // TODO add your handling code here:
+        DbAccess db = new DbAccess();
+        db.ShowData(data.get(0));
+        System.out.println(data.get(0));
+    }//GEN-LAST:event_HistoryActionPerformed
+
+    private void MetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MetroActionPerformed
+        // TODO add your handling code here:
+        new Metro(data).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_MetroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,11 +163,16 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+//                new Dashboard(List<String> s).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bus;
+    private javax.swing.JButton History;
+    private javax.swing.JButton Metro;
+    private javax.swing.JButton Profile;
+    private javax.swing.JButton Train;
     // End of variables declaration//GEN-END:variables
 }
